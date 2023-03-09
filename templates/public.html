@@ -1,0 +1,55 @@
+{% extends "_layout.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/website_card.css' %}">
+{% endblock %}
+
+{% block page_header %}公共导航{% endblock %}
+{% block breadcrumb %}{% endblock %}
+
+{% block sidebar %}
+    <li class="nav-item menu-open">
+        <a href="#" class="nav-link active">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+                网站导航
+                <i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview">
+            {% for category in categories %}
+                <li class="nav-item">
+                    <a href="#category-{{ category.pk }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>{{ category.name }}</p>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </li>
+{% endblock %}
+
+{% block content %}
+    {% for category in categories %}
+        <h4 class="mb-2" id="category-{{ category.pk }}">
+            <i class="far fa-circle"></i>
+            {{ category.name }}
+        </h4>
+        <div class="row">
+            {% for website in category.website_set.all %}
+                {% include '_widgets/website_card.html' %}
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block bottom %}
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+{% endblock %}

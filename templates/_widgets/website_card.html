@@ -1,0 +1,37 @@
+<div class="col-sm-12 col-md-6 col-lg-3 mb-4">
+    <div class="card text-white card-has-bg click-col"
+         style="background-image:url('https://blog.sblt.deali.cn:9000/Api/PicLib/Random/{{ website.name }}/300/450');"
+         onclick="window.open('{% url 'goto' website.pk %}')">
+        <img class="card-img d-none"
+             src="https://blog.sblt.deali.cn:9000/Api/PicLib/Random/{{ website.name }}/300/450"
+             alt="test">
+        <div class="card-img-overlay d-flex flex-column">
+            <div class="card-body">
+                <div class="card-text">
+                    <small class="card-meta mb-2">{{ website.category.name }}</small>
+                </div>
+                <div class="card-text">
+                    <h4><a class="text-white" href="{% url 'goto' website.pk %}" target="_blank">{{ website.name }}</a>
+                    </h4>
+                </div>
+                <div class="card-text">
+                    <small><i class="far fa-clock"></i> {{ website.updated_time }}</small>
+                </div>
+                <div class="card-text">
+                    <small>{{ website.description }}</small>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="media">
+                    <img class="mr-3 rounded-circle"
+                         src="https://blog.sblt.deali.cn:9000/Api/PicLib/Random/{{ website.name }}/50/50"
+                         alt="Generic placeholder image" style="max-width:50px">
+                    <div class="media-body">
+                        <h6 class="my-0 text-white d-block">{{ website.name }}</h6>
+                        <small>{{ website.url }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
