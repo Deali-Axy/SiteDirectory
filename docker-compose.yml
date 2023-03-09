@@ -1,21 +1,41 @@
-version: "3"
+version: "3.8"
 services:
   redis:
     image: redis
-    expose:
-      - 6379
+    container_name: site_directory_redis
+    restart: always
+  nginx:
+    image: nginx:stable-alpine
+    container_name: site_directory_nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./media:/code/media:ro
+      - ./static_collected:/code/static_collected:ro
+    depends_on:
+      - web
+    networks:
+      - default
+      - swag
   web:
-    restart: always # 除正常工作外，容器会在任何时候重启，比如遭遇 bug、进程崩溃、docker 重启等情况。
     build: .
+    container_name: site_directory_web
+    restart: always
     environment:
       - ENVIRONMENT=docker
-      - URL_PREFIX=django_starter
-      - DEBUG=true
-    command: python3 manage.py runserver 0.0.0.0:8000
-#    command: uwsgi uwsgi.ini
+      - URL_PREFIX=
+      - DEBUG=false
+#    command: python3 manage.py runserver 0.0.0.0:8000
+    command: uwsgi uwsgi.ini
     volumes:
       - .:/code
-    ports:
-      - "8000:8000"
     depends_on:
       - redis
+    networks:
+      - default
+
+networks:
+  default:
+    name: site_directory
+  swag:
+    name: swag
+    external: true
