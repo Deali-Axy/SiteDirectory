@@ -20,11 +20,16 @@ def get_ip(request):
 
 
 def public(request):
+    theme = request.GET.get('theme', 'standard')
+    template = 'public.html'
+    if theme == 'simple':
+        template = 'public_simple.html'
+
     ctx = {
         'categories': Category.objects.all(),
     }
 
-    return render(request, 'public.html', ctx)
+    return render(request, template, ctx)
 
 
 def private(request):

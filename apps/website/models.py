@@ -23,6 +23,10 @@ class WebSite(ModelExt):
     url = models.URLField('链接')
     extra_urls = models.ManyToManyField('URL', verbose_name='更多链接', blank=True)
 
+    def color(self):
+        from utils.colors import random_color_bootstrap
+        return random_color_bootstrap(self.pk)
+
     def __str__(self):
         return self.name
 

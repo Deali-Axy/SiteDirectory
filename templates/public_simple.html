@@ -1,0 +1,67 @@
+{% extends "_layout.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block page_header %}公共导航{% endblock %}
+{% block breadcrumb %}{% endblock %}
+
+{% block sidebar %}
+    <li class="nav-item menu-open">
+        <a href="#" class="nav-link active">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+                网站导航
+                <i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview">
+            {% for category in categories %}
+                <li class="nav-item">
+                    <a href="#category-{{ category.pk }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>{{ category.name }}</p>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </li>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        {% for category in categories %}
+            <div class="col-xl-4 col-lg-6">
+                <div class="card mb-2" id="category-{{ category.pk }}">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h4>{{ category.name }}</h4>
+                        </div>
+                        <div class="card-text row">
+                            {% for website in category.website_set.all %}
+                                <div class="col-3 mb-1">
+                                    <a class="btn btn-outline-{{ website.color }} btn-block text-sm" href="{{ website.url }}">
+                                        {{ website.name|slice:6 }}
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="callout callout-danger">
+                <h5>没有内容</h5>
+                <p>请先在管理后台添加网址</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block bottom %}
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+{% endblock %}
