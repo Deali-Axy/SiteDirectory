@@ -5,6 +5,7 @@ from django_starter.db.models import ModelExt
 class Category(ModelExt):
     name = models.CharField('名称', max_length=100)
     description = models.TextField('说明', blank=True, null=True)
+    rank = models.PositiveIntegerField('排序', default=99, help_text='数字越小，排越前')
 
     def __str__(self):
         return self.name
@@ -17,6 +18,7 @@ class Category(ModelExt):
 class WebSite(ModelExt):
     name = models.CharField('名称', max_length=100)
     description = models.TextField('说明', blank=True, null=True)
+    rank = models.PositiveIntegerField('排序', default=99, help_text='数字越小，排越前')
     category = models.ForeignKey('Category', verbose_name='分类', db_constraint=False, on_delete=models.DO_NOTHING)
     url = models.URLField('链接')
     extra_urls = models.ManyToManyField('URL', verbose_name='更多链接', blank=True)
