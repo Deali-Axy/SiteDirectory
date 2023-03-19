@@ -5,7 +5,7 @@ def config_caches(is_docker: bool):
             # 连接Redis数据库(服务器地址)
             # 一主带多从(可以配置个Redis，写走第一台，读走其他的机器)
             'LOCATION': [
-                'redis://redis:6379/0' if is_docker else 'redis://sblt.dou3.net:6379/0',
+                'redis://redis:6379/0' if is_docker else 'redis://localhost:6379/1',
             ],
             'KEY_PREFIX': 'django_starter',  # 项目名当做文件前缀
             'OPTIONS': {
