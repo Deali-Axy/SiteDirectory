@@ -15,7 +15,6 @@ from config.django_starter import project_info
 
 urlpatterns = [
     path('', include('apps.website.urls')),
-    path('guide/', include('apps.demo.urls')),
 
     # DjangoStarter
     path('django-starter/', include('django_starter.urls')),
