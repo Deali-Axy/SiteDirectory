@@ -17,9 +17,9 @@ class Category(ModelExt):
 class WebSite(ModelExt):
     name = models.CharField('名称', max_length=100)
     description = models.TextField('说明', blank=True, null=True)
-    category = models.ForeignKey('Category', db_constraint=False, on_delete=models.DO_NOTHING)
+    category = models.ForeignKey('Category', verbose_name='分类', db_constraint=False, on_delete=models.DO_NOTHING)
     url = models.URLField('链接')
-    extra_urls = models.ManyToManyField('URL', blank=True)
+    extra_urls = models.ManyToManyField('URL', verbose_name='更多链接', blank=True)
 
     def __str__(self):
         return self.name
