@@ -43,6 +43,11 @@
                 {% include '_widgets/website_card.html' %}
             {% endfor %}
         </div>
+    {% empty %}
+        <div class="callout callout-danger">
+            <h5>没有内容</h5>
+            <p>请先在管理后台添加网址</p>
+        </div>
     {% endfor %}
 {% endblock %}
 

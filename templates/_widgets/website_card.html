@@ -11,14 +11,13 @@
                     <small class="card-meta mb-2">{{ website.category.name }}</small>
                 </div>
                 <div class="card-text">
-                    <h4><a class="text-white" href="{% url 'goto' website.pk %}" target="_blank">{{ website.name }}</a>
-                    </h4>
+                    <h4>{{ website.name }}</h4>
                 </div>
                 <div class="card-text">
                     <small><i class="far fa-clock"></i> {{ website.updated_time }}</small>
                 </div>
                 <div class="card-text">
-                    <small>{{ website.description }}</small>
+                    <small>{{ website.description|default_if_none:'' }}</small>
                 </div>
             </div>
             <div class="card-footer">
