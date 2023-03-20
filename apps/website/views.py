@@ -45,3 +45,8 @@ def goto(request, pk=None):
     )
 
     return redirect(website.url)
+
+
+def search(request):
+    keyword = request.GET.get('q', '')
+    return redirect(f'https://www.chinaso.com/newssearch/all/allResults?q={keyword}')

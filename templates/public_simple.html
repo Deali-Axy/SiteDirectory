@@ -34,14 +34,15 @@
             <div class="col-xl-4 col-lg-6 grid-item">
                 <div class="card mb-2" id="category-{{ category.pk }}">
                     <div class="card-body">
-                        <div class="card-title">
-                            <h4>{{ category.name }}</h4>
+                        <div class="card-title mb-1">
+                            <h5>{{ category.name }}</h5>
                         </div>
                         <div class="card-text row">
                             {% for website in category.website_set.all %}
                                 <div class="col-3 mb-1">
                                     <a class="btn btn-outline-{{ website.color }} btn-block text-sm"
-                                       href="{{ website.url }}">
+                                       href="{% url 'goto' website.pk %}" target="_blank"
+                                       data-toggle="tooltip" data-placement="top" title="{{ website.url }}">
                                         {{ website.name|slice:6 }}
                                     </a>
                                 </div>
