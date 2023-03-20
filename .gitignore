@@ -8,6 +8,7 @@ static_collected
 test/
 log/
 db.sqlite3
+*.sqlite3
 yarn.lock
 
 ### VisualStudioCode template

@@ -4,6 +4,7 @@ import django
 
 
 def run():
+    print('加载数据…')
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
     django.setup()
     from apps.website.models import Category, WebSite

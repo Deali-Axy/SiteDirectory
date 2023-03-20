@@ -29,9 +29,9 @@
 {% endblock %}
 
 {% block content %}
-    <div class="row">
+    <div class="row" id="grid">
         {% for category in categories %}
-            <div class="col-xl-4 col-lg-6">
+            <div class="col-xl-4 col-lg-6 grid-item">
                 <div class="card mb-2" id="category-{{ category.pk }}">
                     <div class="card-body">
                         <div class="card-title">
@@ -40,7 +40,8 @@
                         <div class="card-text row">
                             {% for website in category.website_set.all %}
                                 <div class="col-3 mb-1">
-                                    <a class="btn btn-outline-{{ website.color }} btn-block text-sm" href="{{ website.url }}">
+                                    <a class="btn btn-outline-{{ website.color }} btn-block text-sm"
+                                       href="{{ website.url }}">
                                         {{ website.name|slice:6 }}
                                     </a>
                                 </div>
@@ -59,9 +60,16 @@
 {% endblock %}
 
 {% block bottom %}
+    <script src="{% static 'lib/masonry-layout/dist/masonry.pkgd.min.js' %}"></script>
     <script>
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
         })
+        // init Masonry
+        let $grid = $('#grid').masonry({
+            itemSelector: '.grid-item',
+            percentPosition: true,
+        })
+        $grid.masonry('layout')
     </script>
 {% endblock %}
