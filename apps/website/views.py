@@ -44,7 +44,7 @@ def goto(request, pk=None):
         ip_address=get_ip(request)
     )
 
-    return redirect(website.url)
+    return redirect(website.url, permanent=True)
 
 
 def search(request):
