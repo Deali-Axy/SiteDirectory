@@ -49,4 +49,4 @@ def goto(request, pk=None):
 
 def search(request):
     keyword = request.GET.get('q', '')
-    return redirect(f'https://www.chinaso.com/newssearch/all/allResults?q={keyword}')
+    return redirect(f'https://www.bing.com/search?q={keyword}')

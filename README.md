@@ -2,10 +2,12 @@
 
 🌏 基于 DjangoStarter 开发的网站导航
 
+Demo: [index.a.dealiaxy.com](http://index.a.dealiaxy.com:9080)
+
 
 ## Features
 
-- 美观的导航界面
+- 美观的导航界面（两种风格）
 - 完善的后台管理功能
 - 网站分类管理
 - 网站支持多个链接
@@ -21,13 +23,23 @@
 
 ## Screenshots
 
-主页
+### 主页
 
-![](docs/images/home.png)
+![](docs/images/home1.jpg)
 
-管理后台
+简洁版主页
 
-![](docs/images/admin.png)
+![](docs/images/home2.jpg)
+
+### 管理后台
+
+网站分类
+
+![](docs/images/admin1.jpg)
+
+编辑网站列表
+
+![](docs/images/admin2.jpg)
 
 
 ## LICENSE
