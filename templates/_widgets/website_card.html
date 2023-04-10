@@ -1,7 +1,7 @@
 <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
     <div class="card text-white card-has-bg click-col"
          style="background-image:url('https://blog.sblt.deali.cn:9000/Api/PicLib/Random/{{ website.name }}/300/450');"
-         onclick="window.open('{% url 'goto' website.pk %}')">
+         onclick="gotoSite('{{ website.pk }}','{{ website.url }}')">
         <img class="card-img d-none"
              src="https://blog.sblt.deali.cn:9000/Api/PicLib/Random/{{ website.name }}/300/450"
              alt="test">
