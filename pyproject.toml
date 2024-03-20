@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "sitedirectory"
+version = "0.1.0"
+description = ""
+authors = ["DealiAxy <dealiaxy@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^5.0.3"
+django-cors-headers = "^4.3.1"
+django-filter = "^24.1"
+django-multi-captcha-admin = "^2.0.0"
+django-ranged-response = "^0.2.0"
+django-ratelimit = "^4.1.0"
+django-redis = "^5.4.0"
+django-simple-captcha = "^0.6.0"
+django-simpleui = "^2023.12.12"
+djangorestframework = "^3.15.0"
+drf-yasg = "^1.21.7"
+requests = "^2.31.0"
+wechatpy = "^1.8.18"
+pycryptodome = "^3.20.0"
+coreapi = "^2.3.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

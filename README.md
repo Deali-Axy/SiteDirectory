@@ -42,6 +42,31 @@ Demo: [index.a.dealiaxy.com](http://index.a.dealiaxy.com:9080)
 ![](docs/images/admin2.jpg)
 
 
+## 部署
+
+使用 `docker-compose` 部署
+
+```bash
+git clone https://github.com/Deali-Axy/SiteDirectory.git
+cd SiteDirectory
+docker-compose up -d
+```
+
+静态资源初始化
+
+目前只能在本地使用 npm/yarn 来安装前端依赖，然后使用 gulp 打包后上传到服务器。
+
+在 docker 中自动构建正在开发中，很快就上线。
+
+```bash
+# 安装依赖
+yarn
+# 打包
+gulp move
+```
+
+然后把 `static/lib` 目录上传到服务器相同位置即可
+
 ## LICENSE
 
 ```

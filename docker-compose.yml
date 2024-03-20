@@ -7,10 +7,13 @@ services:
   nginx:
     image: nginx:stable-alpine
     container_name: site_directory_nginx
+    restart: always
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
       - ./media:/code/media:ro
       - ./static_collected:/code/static_collected:ro
+    ports:
+      - "8080:8001"
     depends_on:
       - web
     networks:
@@ -24,7 +27,7 @@ services:
       - ENVIRONMENT=docker
       - URL_PREFIX=
       - DEBUG=false
-#    command: python3 manage.py runserver 0.0.0.0:8000
+    #    command: python3 manage.py runserver 0.0.0.0:8000
     command: uwsgi uwsgi.ini
     volumes:
       - .:/code
