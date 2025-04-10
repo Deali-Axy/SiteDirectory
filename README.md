@@ -2,7 +2,7 @@
 
 🌏 基于 DjangoStarter 开发的网站导航
 
-Demo: [index.a.dealiaxy.com](http://index.a.dealiaxy.com:9080)
+Demo: [index.sblt.deali.cn:9000](https://index.sblt.deali.cn:9000/)
 
 
 ## Features
